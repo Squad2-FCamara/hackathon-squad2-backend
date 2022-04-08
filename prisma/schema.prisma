@@ -27,8 +27,9 @@ model Profile {
   created_at  DateTime @default(now())
   updated_at  DateTime @default(now())
 
-  userId Int  @unique
-  user   User @relation(fields: [userId], references: [id])
+  userId       Int            @unique
+  user         User           @relation(fields: [userId], references: [id])
+  ProfileSkill ProfileSkill[]
   @@map("profiles")
 }
 
@@ -43,6 +44,7 @@ model Skill {
   id   Int    @id @default(autoincrement())
   name String
 
+  ProfileSkill ProfileSkill[]
   @@map("skills")
 }
 
@@ -74,4 +76,14 @@ model UserSchedule {
   schedule   Schedule @relation(fields: [scheduleId], references: [id])
 
   @@map("users_schedules")
+}
+
+model ProfileSkill {
+  id        Int     @id @default(autoincrement())
+  profileId Int
+  profile   Profile @relation(fields: [profileId], references: [id])
+  skillId   Int
+  skill     Skill   @relation(fields: [skillId], references: [id])
+
+  @@map("profiles_skills")
 }
