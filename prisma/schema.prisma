@@ -34,14 +34,14 @@ model Profile {
 
 model Role {
   id   Int    @id @default(autoincrement())
-  name String @unique
+  name String
 
   @@map("roles")
 }
 
 model Skill {
   id   Int    @id @default(autoincrement())
-  name String @unique
+  name String
 
   @@map("skills")
 }
