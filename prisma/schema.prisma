@@ -41,3 +41,11 @@ model Skill {
 
   @@map("skills")
 }
+
+model Availability {
+  id   Int      @id @default(autoincrement())
+  day  DateTime
+  hour DateTime
+
+  @@map("availabilities")
+}
