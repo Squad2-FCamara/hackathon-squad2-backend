@@ -27,11 +27,12 @@ model Profile {
   created_at  DateTime @default(now())
   updated_at  DateTime @default(now())
 
-  userId       Int            @unique
-  user         User           @relation(fields: [userId], references: [id])
-  ProfileSkill ProfileSkill[]
-  roleId       Int?
-  Role         Role?          @relation(fields: [roleId], references: [id])
+  userId              Int                   @unique
+  user                User                  @relation(fields: [userId], references: [id])
+  ProfileSkill        ProfileSkill[]
+  roleId              Int?
+  Role                Role?                 @relation(fields: [roleId], references: [id])
+  ProfileAvailability ProfileAvailability[]
   @@map("profiles")
 }
 
@@ -56,6 +57,7 @@ model Availability {
   day  DateTime
   hour DateTime
 
+  ProfileAvailability ProfileAvailability[]
   @@map("availabilities")
 }
 
@@ -89,4 +91,14 @@ model ProfileSkill {
   skill     Skill   @relation(fields: [skillId], references: [id])
 
   @@map("profiles_skills")
+}
+
+model ProfileAvailability {
+  id             Int          @id @default(autoincrement())
+  profileId      Int
+  profile        Profile      @relation(fields: [profileId], references: [id])
+  availabilityId Int
+  availability   Availability @relation(fields: [availabilityId], references: [id])
+
+  @@map("profiles_availabilities")
 }
