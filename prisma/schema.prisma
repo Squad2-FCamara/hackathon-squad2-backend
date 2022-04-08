@@ -49,3 +49,14 @@ model Availability {
 
   @@map("availabilities")
 }
+
+model Schedule {
+  id          Int      @id @default(autoincrement())
+  day         DateTime
+  start_time  DateTime
+  end_time    DateTime
+  description String
+  created_at  DateTime @default(now())
+
+  @@map("schedules")
+}
