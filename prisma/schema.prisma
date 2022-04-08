@@ -13,6 +13,7 @@ model User {
   email    String @unique
   password String
 
+  UserSchedule UserSchedule[]
   @@map("users")
 }
 
@@ -58,5 +59,16 @@ model Schedule {
   description String
   created_at  DateTime @default(now())
 
+  UserSchedule UserSchedule[]
   @@map("schedules")
+}
+
+model UserSchedule {
+  id         Int      @id @default(autoincrement())
+  userId     Int
+  user       User     @relation(fields: [userId], references: [id])
+  scheduleId Int
+  schedule   Schedule @relation(fields: [scheduleId], references: [id])
+
+  @@map("users_schedules")
 }
