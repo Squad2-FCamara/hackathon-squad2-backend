@@ -58,6 +58,8 @@ model Availability {
   hour DateTime
 
   ProfileAvailability ProfileAvailability[]
+  scheduleId          Int?
+  Schedule            Schedule?             @relation(fields: [scheduleId], references: [id])
   @@map("availabilities")
 }
 
@@ -69,6 +71,7 @@ model Schedule {
   description String
   created_at  DateTime @default(now())
 
+  availabity   Availability[]
   UserSchedule UserSchedule[]
   @@map("schedules")
 }
