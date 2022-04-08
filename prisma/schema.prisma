@@ -13,6 +13,7 @@ model User {
   email    String @unique
   password String
 
+  Profile      Profile?
   UserSchedule UserSchedule[]
   @@map("users")
 }
@@ -26,6 +27,8 @@ model Profile {
   created_at  DateTime @default(now())
   updated_at  DateTime @default(now())
 
+  userId Int  @unique
+  user   User @relation(fields: [userId], references: [id])
   @@map("profiles")
 }
 
