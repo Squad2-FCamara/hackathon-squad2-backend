@@ -5,6 +5,11 @@
     "esModuleInterop": true,
     "forceConsistentCasingInFileNames": true,
     "strict": false,
-    "skipLibCheck": true
+    "skipLibCheck": true,
+    "sourceMap": true,
+    "outDir": "dist",
+    "lib": [
+      "esnext"
+    ]
   }
 }
