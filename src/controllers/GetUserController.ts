@@ -12,21 +12,13 @@ export class GetUserController {
           select:{
             schedule:{
               select: {
+                id: true,
                 day: true,
                 start_time: true,
                 end_time: true,
                 description: true
               }
             },
-            user: {
-              select: {
-                Profile:{
-                  select: {
-                    id: true
-                  }
-                }
-              }
-            }
           }
         },
         Profile: {
