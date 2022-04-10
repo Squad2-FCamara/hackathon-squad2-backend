@@ -1,3 +1,6 @@
+// This is your Prisma schema file,
+// learn more about it in the docs: https://pris.ly/d/prisma-schema
+
 generator client {
   provider = "prisma-client-js"
 }
@@ -28,10 +31,10 @@ model Profile {
   updated_at  DateTime @default(now())
 
   userId              Int                   @unique
-  user                User                  @relation(fields: [userId], references: [id])
-  ProfileSkill        ProfileSkill[]
+  user                User?                 @relation(fields: [userId], references: [id])
   roleId              Int?
   Role                Role?                 @relation(fields: [roleId], references: [id])
+  ProfileSkill        ProfileSkill[]
   ProfileAvailability ProfileAvailability[]
   @@map("profiles")
 }
@@ -48,14 +51,14 @@ model Skill {
   id   Int    @id @default(autoincrement())
   name String
 
-  ProfileSkill ProfileSkill[]
+  Profile ProfileSkill[]
   @@map("skills")
 }
 
 model Availability {
   id   Int      @id @default(autoincrement())
-  day  DateTime
-  hour DateTime
+  day  String
+  hour String
 
   ProfileAvailability ProfileAvailability[]
   scheduleId          Int?
@@ -65,9 +68,9 @@ model Availability {
 
 model Schedule {
   id          Int      @id @default(autoincrement())
-  day         DateTime
-  start_time  DateTime
-  end_time    DateTime
+  day         String
+  start_time  String
+  end_time    String
   description String
   created_at  DateTime @default(now())
 
@@ -78,6 +81,7 @@ model Schedule {
 
 model UserSchedule {
   id         Int      @id @default(autoincrement())
+
   userId     Int
   user       User     @relation(fields: [userId], references: [id])
   scheduleId Int
@@ -88,6 +92,7 @@ model UserSchedule {
 
 model ProfileSkill {
   id        Int     @id @default(autoincrement())
+
   profileId Int
   profile   Profile @relation(fields: [profileId], references: [id])
   skillId   Int
@@ -98,6 +103,7 @@ model ProfileSkill {
 
 model ProfileAvailability {
   id             Int          @id @default(autoincrement())
+
   profileId      Int
   profile        Profile      @relation(fields: [profileId], references: [id])
   availabilityId Int
