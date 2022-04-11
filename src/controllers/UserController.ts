@@ -48,6 +48,18 @@ class UserController {
     }
   }
 
+  public async createUserSchedule(request: Request, response: Response){
+
+    const userRepository = new UserRepository();
+    const service = new FindAllUserService(userRepository);
+    try {
+      const user = await service.execute();
+      return response.status(200).json({user: user});
+    } catch (e) {
+      return response.status(500).json({message: 'Something is wrong!'});
+    }
+  }
+
 }
 
 export default new UserController;

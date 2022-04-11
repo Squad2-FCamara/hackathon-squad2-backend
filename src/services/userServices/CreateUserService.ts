@@ -13,5 +13,4 @@ export default class CreateUserService {
     return await this.userRepository.create(name, email, password);
   }
 
-  
 }

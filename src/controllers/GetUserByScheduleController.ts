@@ -9,18 +9,20 @@ export class GetUserByScheduleController {
     const scheduleId = Number(parameters.scheduleId)
     const users = await prismaClient.userSchedule.findMany({
       where:{
-        OR:[
-          {
-            scheduleId:scheduleId
-          },
-          {
-            userId: userId
-          }
-        ] 
+        userId: userId
       },
       select:{
         user:{},
-        schedule:{}
+        schedule:{
+          include:{
+            UserSchedule:{
+              select:{
+                user:{}
+              }
+            }
+          }
+        },
+
       }
     })
     return response.json(users);
