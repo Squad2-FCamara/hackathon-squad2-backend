@@ -9,7 +9,29 @@ export class GetProfileByNameController {
 
     const users = await prismaClient.profile.findMany({
       where:{
-        nickname: nome
+        nickname: nome.nickname
+      },
+      select: {
+        nickname: true,
+        seniority: true,
+        description: true,
+        photo: true,
+        updated_at: true,
+        created_at: true,
+        ProfileSkill:{
+          select:{
+            skill:{
+              select:{
+                name: true
+              }
+            }
+          }
+        },
+        Role:{
+          select:{
+            name: true
+          }
+        }
       }
     })
     return response.json(users);
