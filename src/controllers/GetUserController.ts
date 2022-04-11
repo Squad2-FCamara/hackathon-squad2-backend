@@ -39,8 +39,18 @@ export class GetUserController {
                 skill: true
               }
             },
+            ProfileAvailability:{
+              select:{
+                availability:{
+                  select:{
+                    day: true,
+                    hour: true,
+                  }
+                }
+              }
+            }
           } 
-        }
+        },
       }
     });
     return response.json(users);

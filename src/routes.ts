@@ -12,6 +12,8 @@ import { GetUserController } from "./controllers/GetUserController";
 import { GetProfileBySkillController } from "./controllers/GetProfileBySkillController";
 import { GetProfileByNameController } from "./controllers/GetProfileByNameController";
 import { JoinProfileRoleController } from "./controllers/JoinProfileRoleController";
+import { JoinProfileAvailabilityController } from "./controllers/JoinProfileAvailabilityController";
+import { CreateProfileAvailabilityController } from "./controllers/CreateProfileAvailabilityController";
 
 const router = Router();
 
@@ -23,9 +25,12 @@ const createAvailability = new CreateAvailabilityController();
 const createSchedule = new CreateScheduleController();
 const createUserSchedule = new CreateUserScheduleController();
 
+const createProfileAvailabilityController = new CreateProfileAvailabilityController();
+
 const joinProfileSkill = new JoinProfileSkillController();
 const joinUserSchedule = new JoinUserScheduleController();
 const joinProfileRole  = new JoinProfileRoleController();
+const joinProfileAvailabilityController = new JoinProfileAvailabilityController();
 
 const getUserController = new GetUserController(); 
 const getProfileBySkillController = new GetProfileBySkillController();
@@ -38,11 +43,14 @@ router.post('/skill', createSkill.handle);
 router.post('/role', createRole.handle);
 router.post('/availability', createAvailability.handle);
 router.post('/schedule', createSchedule.handle);
-router.post('/userwithschedule', createUserSchedule.handle);
+router.post('/user/schedule', createUserSchedule.handle);
 
-router.post('/joinprofileskill', joinProfileSkill.handle);
-router.post('/joinuserschedule', joinUserSchedule.handle);
+router.post('/join/profile/skill', joinProfileSkill.handle);
+router.post('/join/user/schedule', joinUserSchedule.handle);
 router.patch('/join/profile/role', joinProfileRole.handle);
+router.post('/join/profile/availability', joinProfileAvailabilityController.handle);
+
+router.post('/profile/availability', createProfileAvailabilityController.handle);
 
 router.get('/users', getUserController.handle);
 router.get('/users/skill/:skill', getProfileBySkillController.handle);
