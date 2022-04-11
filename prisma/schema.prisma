@@ -64,7 +64,7 @@ model Role {
 
 model Skill {
   id   Int    @id @default(autoincrement())
-  name String
+  name String @unique
 
   Profile ProfileSkill[]
   @@map("skills")

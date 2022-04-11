@@ -1,17 +1,21 @@
 import { Request, Response } from "express";
-import { prismaClient } from "../database/prismaClient";
+import CreateUserService from "../services/userServices/CreateUserService";
+import UserRepository from "../repositories/UserRepository";
 
-export class CreaterUserController {
-  async handle(request: Request, response: Response) {
-    const { name, email, password } = request. body
+class CreaterUserController {
+  public async create(request: Request, response: Response){
 
-    const user = await prismaClient.user.create({
-      data: {
-        name: name,
-        email: email,
-        password: password,
-      }
-    })
-    return response.json(user);
+    const userRepository = new UserRepository();
+    const service = new CreateUserService(userRepository);
+
+    try {
+      const { name, email, password } = request.body;
+      const user = await service.execute(name, email, password);
+      return response.status(201).json({user: user})
+    } catch (e) {
+      return response.status(500).json({message: 'Something is wrong!'})
+    }
   }
 }
+
+export default new CreaterUserController;

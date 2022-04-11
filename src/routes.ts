@@ -5,7 +5,7 @@ import { JoinProfileSkillController } from "./controllers/JoinProfileSkillContro
 import { CreateRoleController } from "./controllers/CreateRoleController";
 import { CreateScheduleController } from "./controllers/CreateScheduleController";
 import { CreateSkillController } from "./controllers/CreateSkillController";
-import { CreaterUserController } from "./controllers/CreateUserController";
+// import CreaterUserController from "./controllers/CreateUserController";
 import { CreateUserScheduleController } from "./controllers/CreateUserScheduleController";
 import { JoinUserScheduleController } from "./controllers/JoinUserScheduleController";
 import { GetUserController } from "./controllers/GetUserController";
@@ -18,10 +18,14 @@ import { UpdateProfileController } from "./controllers/UpdateProfileController";
 import { UpdateAvailabilityController } from "./controllers/UpdateAvailabilityController";
 import { CreateProfileAddressController } from "./controllers/CreateProfileAddressController";
 import { DeleteAvailabilityController } from "./controllers/DeleteAvailabilityController";
+import CreateUserController from "./controllers/CreateUserController";
+import { UpdateSkillController } from "./controllers/UpdateSkillController";
+import { GetUserByScheduleController } from "./controllers/GetUserByScheduleController";
 
 const router = Router();
 
-const createUser = new CreaterUserController();
+const createUser = CreateUserController;
+
 const createProfile = new CreateProfileController();
 const createSkill = new CreateSkillController();
 const createRole = new CreateRoleController();
@@ -40,13 +44,15 @@ const joinProfileAvailabilityController = new JoinProfileAvailabilityController(
 const getUserController = new GetUserController(); 
 const getProfileBySkillController = new GetProfileBySkillController();
 const getProfileByNameController = new GetProfileByNameController();
+const getUserByScheduleController = new GetUserByScheduleController();
 
 const updateProfileController = new UpdateProfileController();
 const updateAvailabilityController = new UpdateAvailabilityController();
+const updateSkillController = new UpdateSkillController();
 
 const deleteAvailabilityController = new DeleteAvailabilityController();
 
-router.post('/user', createUser.handle);
+router.post('/user', createUser.create);
 router.post('/profile', createProfile.handle);
 router.post('/skill', createSkill.handle);
 router.post('/role', createRole.handle);
@@ -65,9 +71,11 @@ router.post('/profile/availability', createProfileAvailabilityController.handle)
 router.get('/users', getUserController.handle);
 router.get('/users/skill/:skill', getProfileBySkillController.handle);
 router.get('/users/nickname/:nickname', getProfileByNameController.handle);
+router.get('/user/schedule/:userId', getUserByScheduleController.handle);
 
 router.put('/profile', updateProfileController.handle);
 router.put('/availability', updateAvailabilityController.handle);
+router.put('/skill', updateSkillController.handle);
 
 router.delete('/availability', deleteAvailabilityController.handle);
 
