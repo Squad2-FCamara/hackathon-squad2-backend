@@ -75,7 +75,7 @@ router.post('/profile/availability', createProfileAvailabilityController.handle)
 router.get('/users', getUserController.handle);
 router.get('/users/skill/:skill', getProfileBySkillController.handle);
 router.get('/users/nickname/:nickname', getProfileByNameController.handle);
-router.get('/user/schedule/:userId', getUserByScheduleController.handle);
+router.get('/user/schedule/:userId/:scheduleId', getUserByScheduleController.handle);
 
 router.put('/profile', updateProfileController.handle);
 router.put('/availability', updateAvailabilityController.handle);
