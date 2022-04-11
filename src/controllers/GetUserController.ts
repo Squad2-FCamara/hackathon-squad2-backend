@@ -29,6 +29,7 @@ export class GetUserController {
             updated_at: true,
             description: true,
             photo: true,
+            Address: true,
             Role: {
               select:{
                 name: true

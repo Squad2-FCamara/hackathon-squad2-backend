@@ -30,6 +30,7 @@ model Profile {
   created_at  DateTime @default(now())
   updated_at  DateTime @default(now())
 
+  Address             Address?
   userId              Int                   @unique
   user                User?                 @relation(fields: [userId], references: [id])
   roleId              Int?
@@ -37,6 +38,20 @@ model Profile {
   ProfileSkill        ProfileSkill[]
   ProfileAvailability ProfileAvailability[]
   @@map("profiles")
+}
+
+model Address {
+  id Int @id @default(autoincrement())
+  street String
+  number Int
+  cep String
+  country String
+  state String
+  city String
+
+  profileId              Int                   @unique
+  Profile                Profile?              @relation(fields: [profileId], references: [id])
+  @@map("address")
 }
 
 model Role {

@@ -14,6 +14,10 @@ import { GetProfileByNameController } from "./controllers/GetProfileByNameContro
 import { JoinProfileRoleController } from "./controllers/JoinProfileRoleController";
 import { JoinProfileAvailabilityController } from "./controllers/JoinProfileAvailabilityController";
 import { CreateProfileAvailabilityController } from "./controllers/CreateProfileAvailabilityController";
+import { UpdateProfileController } from "./controllers/UpdateProfileController";
+import { UpdateAvailabilityController } from "./controllers/UpdateAvailabilityController";
+import { CreateProfileAddressController } from "./controllers/CreateProfileAddressController";
+import { DeleteAvailabilityController } from "./controllers/DeleteAvailabilityController";
 
 const router = Router();
 
@@ -26,6 +30,7 @@ const createSchedule = new CreateScheduleController();
 const createUserSchedule = new CreateUserScheduleController();
 
 const createProfileAvailabilityController = new CreateProfileAvailabilityController();
+const createProfileAddressController = new CreateProfileAddressController();
 
 const joinProfileSkill = new JoinProfileSkillController();
 const joinUserSchedule = new JoinUserScheduleController();
@@ -36,6 +41,10 @@ const getUserController = new GetUserController();
 const getProfileBySkillController = new GetProfileBySkillController();
 const getProfileByNameController = new GetProfileByNameController();
 
+const updateProfileController = new UpdateProfileController();
+const updateAvailabilityController = new UpdateAvailabilityController();
+
+const deleteAvailabilityController = new DeleteAvailabilityController();
 
 router.post('/user', createUser.handle);
 router.post('/profile', createProfile.handle);
@@ -49,6 +58,7 @@ router.post('/join/profile/skill', joinProfileSkill.handle);
 router.post('/join/user/schedule', joinUserSchedule.handle);
 router.patch('/join/profile/role', joinProfileRole.handle);
 router.post('/join/profile/availability', joinProfileAvailabilityController.handle);
+router.put('/profile/address', createProfileAddressController.handle);
 
 router.post('/profile/availability', createProfileAvailabilityController.handle);
 
@@ -56,5 +66,9 @@ router.get('/users', getUserController.handle);
 router.get('/users/skill/:skill', getProfileBySkillController.handle);
 router.get('/users/nickname/:nickname', getProfileByNameController.handle);
 
+router.put('/profile', updateProfileController.handle);
+router.put('/availability', updateAvailabilityController.handle);
+
+router.delete('/availability', deleteAvailabilityController.handle);
 
 export { router };
