@@ -1,6 +1,6 @@
 import UserRepository  from '../../repositories/UserRepository';
 
-export default class CreateUserService {
+export default class FindAllUserService {
   private userRepository: UserRepository;
 
   constructor ( 
@@ -9,8 +9,8 @@ export default class CreateUserService {
     this.userRepository = userRepository;
   }
 
-  public async execute(name: string, email: string, password:string) {
-    return await this.userRepository.create(name, email, password);
+  public async execute() {
+    return await this.userRepository.findAll();
   }
 
 }
