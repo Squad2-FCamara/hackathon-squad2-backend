@@ -1,7 +1,7 @@
 import { prismaClient } from "../database/prismaClient";
 
 export default class UserRepository {
-  public async create(name: string, email: string, password: string){
+  public async create(name: string, email: string, password: string) {
     const user = await prismaClient.user.create({
       data: {
         name: name,
@@ -9,30 +9,47 @@ export default class UserRepository {
         password: password,
       }
     })
-    
+
     return user;
   }
 
-  public async findById(userId: number){
+  public async findById(userId: number) {
     const user = await prismaClient.user.findUnique({
-      where :{
+      where: {
         id: userId
+      },
+      select: {
+        name: true,
+        email: true
       }
     })
-    
+
     return user;
   }
 
-  public async findAll(){
+  public async findByName(name: string) {
     const user = await prismaClient.user.findMany({
-      select:{
+      where: {
+        name: name
+      },
+      select: {
+        name: true,
+        email: true
+      }
+    })
+
+    return user;
+  }
+
+  public async findAll() {
+    const user = await prismaClient.user.findMany({
+      select: {
         name: true,
         email: true,
         UserSchedule: {
-          select:{
-            schedule:{
+          select: {
+            schedule: {
               select: {
-                id: true,
                 day: true,
                 start_time: true,
                 end_time: true,
@@ -51,30 +68,129 @@ export default class UserRepository {
             photo: true,
             Address: true,
             Role: {
-              select:{
+              select: {
                 name: true
               }
             },
-            ProfileSkill:{
+            ProfileSkill: {
               select: {
                 skill: true
               }
             },
-            ProfileAvailability:{
-              select:{
-                availability:{
-                  select:{
+            ProfileAvailability: {
+              select: {
+                availability: {
+                  select: {
                     day: true,
                     hour: true,
                   }
                 }
               }
             }
-          } 
+          }
         },
       }
     })
-    
+
     return user;
+  }
+
+  public async update(name: string, email: string, password: string, userId: number) {
+    const user = await prismaClient.user.update({
+      where: {
+        id: userId
+      },
+      data: {
+        name: name,
+        email: email,
+        password: password
+      }
+    })
+
+    return user;
+  }
+
+  public async delete(userId: number) {
+    const user = await prismaClient.user.delete({
+      where: {
+        id: userId
+      }
+    })
+
+    return user;
+  }
+
+  public async createUserSchedule(
+    day: string,
+    start_time: string,
+    end_time: string,
+    description: string,
+    userId1: number,
+    userId2: number
+  ) {
+    const UserSchedule1 = await prismaClient.userSchedule.create({
+      data: {
+        schedule: {
+          create: {
+            day: day,
+            start_time: start_time,
+            end_time: end_time,
+            description: description
+          },
+        },
+        user: {
+          connect: {
+            id: userId1,
+          }
+        }
+      }
+    });
+
+    const UserSchedule2 = await prismaClient.userSchedule.create({
+      data: {
+        schedule: {
+          connect: {
+            id: UserSchedule1.scheduleId
+          }
+        },
+        user: {
+          connect: {
+            id: userId2,
+          }
+        }
+      }
+    })
+    return UserSchedule2;
+  }
+
+  public async updateUserSchedule(
+    day: string,
+    start_time: string,
+    end_time: string,
+    description: string,
+    scheduleId: number,
+  ) {
+    const userSchedule = await prismaClient.schedule.update({
+      where:{
+        id: scheduleId
+      },
+      data:{
+        day: day,
+        start_time: start_time,
+        end_time: end_time,
+        description: description
+      }
+    });
+    return userSchedule;
+  }
+
+  public async deleteUserSchedule(userScheduleId: number) {
+    const userSchedule = await prismaClient.userSchedule.delete({
+      where:{
+        id: userScheduleId
+      }
+    })
+
+    return userSchedule;
   }
 }
