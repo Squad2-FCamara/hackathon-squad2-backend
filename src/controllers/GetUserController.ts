@@ -6,6 +6,7 @@ export class GetUserController {
 
     const users = await prismaClient.user.findMany({
       select:{
+        id: true,
         name: true,
         email: true,
         UserSchedule: {
