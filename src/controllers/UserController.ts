@@ -161,7 +161,9 @@ class UserController {
     const service = new ListUserByScheduleService(userRepository);
 
     try {
-      const users = await service.execute();
+      const id  = request.params;
+      const userId = Number(id.userId);
+      const users = await service.execute(userId);
       return response.status(200).json({user: users});
     } catch (e) {
       return response.status(500).json({message: 'Something is wrong!'});

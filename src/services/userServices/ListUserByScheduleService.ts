@@ -7,7 +7,7 @@ export default class ListUserByScheduleService {
     this.userRepository = userRepository;
   }
 
-  public async execute() {
-    return await this.userRepository.listUserBySchedule();
+  public async execute(userId: number) {
+    return await this.userRepository.listUserBySchedule(userId);
   }
 }
