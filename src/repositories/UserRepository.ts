@@ -280,7 +280,14 @@ export default class UserRepository {
         UserSchedule:{
           select:{
             schedule:{
-              include:{}
+              select: {
+                id: true,
+                day: true,
+                created_at: true,
+                start_time: true,
+                end_time: true,
+                description: true
+              }
             }
           }
         }
@@ -299,7 +306,14 @@ export default class UserRepository {
         UserSchedule:{
           select:{
             schedule:{
-              select:{}
+              select: {
+                id: true,
+                day: true,
+                created_at: true,
+                start_time: true,
+                end_time: true,
+                description: true
+              }
             }
           }
         }
