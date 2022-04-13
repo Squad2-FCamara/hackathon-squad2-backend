@@ -10,5 +10,4 @@ export default class FindAllProfileService {
   public async execute() {
     return await this.profileRepository.findAll();
   }
-
 }

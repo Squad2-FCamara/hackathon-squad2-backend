@@ -8,9 +8,9 @@ export default class CreateUserScheduleService {
   }
    
   public async execute(
-    day: string, 
-    start_time: string, 
-    end_time:string, 
+    day: Date, 
+    start_time: Date, 
+    end_time: Date, 
     description: string, 
     userId1: number, 
     userId2: number

@@ -13,6 +13,7 @@ routerUser.put('/user', user.update);
 routerUser.delete('/user/:userId', user.delete);
 routerUser.post('/user/schedule', user.createUserSchedule);
 routerUser.put('/user/schedule', user.updateUserSchedule);
-routerUser.delete('/user/schedule/:userSchedule', user.deleteUserSchedule);
+routerUser.delete('/user/schedule/:scheduleId', user.deleteUserSchedule);
+routerUser.get('/user/availability', user.listUserByAvailability);
 
 export { routerUser };

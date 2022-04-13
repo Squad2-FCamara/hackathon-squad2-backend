@@ -13,5 +13,8 @@ routerProfile.get('/profile', profile.findAllUser);
 routerProfile.patch('/profile/role', profile.joinProfileRole);
 routerProfile.post('/profile/skill', profile.joinProfileSkill);
 routerProfile.get('/profile/skill/:skill', profile.findProfileBySkill);
+routerProfile.post('/profile/address/', profile.createAddress);
+routerProfile.put('/profile/address', profile.updateAddress);
+routerProfile.post('/profile/availability/', profile.createProfileAvailability);
 
 export { routerProfile };

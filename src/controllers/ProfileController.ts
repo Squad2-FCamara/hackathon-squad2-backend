@@ -10,6 +10,8 @@ import FindProfileByNameService from "../services/profileServices/FindProfileByN
 import CreateProfileAvailabilityService from "../services/profileServices/CreateProfileAvailabilityService";
 import UpdateProfileAvailabilityService from "../services/profileServices/UpdateProfileAvailabilityService";
 import FindProfileBySkillService from "../services/profileServices/FindProfileBySkillService";
+import CreateAddressService from "../services/profileServices/CreateAddressService";
+import UpdateAddressService from "../services/profileServices/UpdateAddressService";
 
 class ProfileController {
   public async create(request: Request, response: Response){
@@ -121,8 +123,9 @@ class ProfileController {
     try {
       const { day, hour, profileId  } = request.body;
       const profileAvailability = await service.execute(day, hour, profileId);
-      return response.status(200).json({profileAvailability: profileAvailability});
+      return response.status(201).json({profileAvailability: profileAvailability});
     } catch (e) {
+      console.log(e)
       return response.status(500).json({message: 'Something is wrong!'});
     }
   }
@@ -153,6 +156,34 @@ class ProfileController {
       return response.status(200).json(profile);
     } catch (e) {
       console.log(e)
+      return response.status(500).json({message: 'Something is wrong!'})
+    }
+  }
+
+  public async createAddress(request: Request, response: Response){
+
+    const profileRepository = new ProfileRepository();
+    const service = new CreateAddressService(profileRepository);
+
+    try {
+      const { profileId, street, number, cep, country, state, city  } = request.body;
+      const profile = await service.execute(profileId, street, number, cep, country, state, city);
+      return response.status(201).json({profile: profile})
+    } catch (e) {
+      return response.status(500).json({message: 'Something is wrong!'})
+    }
+  }
+
+  public async updateAddress(request: Request, response: Response){
+
+    const profileRepository = new ProfileRepository();
+    const service = new UpdateAddressService(profileRepository);
+
+    try {
+      const { profileId, street, number, cep, country, state, city  } = request.body;
+      const profile = await service.execute(profileId, street, number, cep, country, state, city);
+      return response.status(200).json({profile: profile})
+    } catch (e) {
       return response.status(500).json({message: 'Something is wrong!'})
     }
   }

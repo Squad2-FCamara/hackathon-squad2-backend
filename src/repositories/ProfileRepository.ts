@@ -63,13 +63,13 @@ export default class ProfileRepository {
   public async findByName(name: string) {
     const profiles = await prismaClient.profile.findMany({
       where: {
-        nickname:{
+        nickname: {
           contains: name
         }
       },
       select: {
-        ProfileSkill:{
-          select:{
+        ProfileSkill: {
+          select: {
             profile: true
           }
         }
@@ -117,10 +117,10 @@ export default class ProfileRepository {
 
   public async joinProfileRole(profileId: number, roleId: number) {
     const profileRole = await prismaClient.profile.update({
-      where:{
+      where: {
         id: profileId
       },
-      data:{
+      data: {
         roleId: roleId
       }
     })
@@ -129,14 +129,14 @@ export default class ProfileRepository {
 
   public async joinProfileSkill(profileId: number, skillId: number) {
     const profileRole = await prismaClient.profileSkill.create({
-      data:{
-        profile:{
-          connect:{
+      data: {
+        profile: {
+          connect: {
             id: profileId
           },
         },
-        skill:{
-          connect:{
+        skill: {
+          connect: {
             id: skillId
           }
         }
@@ -145,30 +145,30 @@ export default class ProfileRepository {
     return profileRole;
   }
 
-  public async findProfileBySkill(name: string){
+  public async findProfileBySkill(name: string) {
     const profile = await prismaClient.profileSkill.findMany({
-      where:{
-        skill:{
+      where: {
+        skill: {
           name: name
         }
       },
-      select:{
-        profile:{
-          select:{
+      select: {
+        profile: {
+          select: {
             nickname: true,
             description: true,
             photo: true,
             seniority: true,
             updated_at: true,
             Role: {
-              select:{
+              select: {
                 name: true
               }
             },
             ProfileSkill: {
-              select:{
-                skill:{
-                  select:{
+              select: {
+                skill: {
+                  select: {
                     name: true
                   }
                 }
@@ -181,17 +181,17 @@ export default class ProfileRepository {
     return profile;
   }
 
-  public async createProfileAvailability( day: string, hour: string, profileId: number) {
+  public async createProfileAvailability(day: Date, hour: Date, profileId: number) {
     const profileAvailability = await prismaClient.profileAvailability.create({
-      data:{
-        availability:{
-          create:{
+      data: {
+        availability: {
+          create: {
             day: day,
             hour: hour
           }
         },
-        profile:{
-          connect:{
+        profile: {
+          connect: {
             id: profileId
           }
         }
@@ -201,21 +201,79 @@ export default class ProfileRepository {
     return profileAvailability;
   }
 
-  public async updateProfileAvailability( day: string, hour: string, profileAvailabilityId: number) {
+  public async updateProfileAvailability(day: Date, hour: Date, profileAvailabilityId: number) {
     const profileAvailability = await prismaClient.profileAvailability.update({
-      where:{
+      where: {
         id: profileAvailabilityId
       },
-      data:{
-        availability:{
-          update:{
+      data: {
+        availability: {
+          update: {
             day: day,
             hour: hour
           }
         }
       }
     });
-
     return profileAvailability;
   }
+
+  public async createAddress(
+    profileId: number,
+    street: string,
+    number: number,
+    cep: string,
+    country: string,
+    state: string,
+    city: string
+  ) {
+    const address = await prismaClient.profile.update({
+      where: {
+        id: profileId
+      },
+      data:{
+        Address:{
+          create:{
+            street: street,
+            number: number,
+            cep: cep,
+            country: country,
+            city: city,
+            state: state
+          }
+        }
+      }
+    });
+    return address;
+  }
+
+  public async updateAddress(
+    profileId: number,
+    street: string,
+    number: number,
+    cep: string,
+    country: string,
+    state: string,
+    city: string
+    ){
+    const address = await prismaClient.profile.update({
+      where: {
+        id: profileId
+      },
+      data:{
+        Address:{
+          update:{
+            street: street,
+            number: number,
+            cep: cep,
+            country: country,
+            state: state,
+            city: city
+          }
+        }
+      }
+    });
+    return address;
+  }
+
 }

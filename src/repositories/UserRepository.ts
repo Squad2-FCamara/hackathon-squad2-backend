@@ -121,9 +121,9 @@ export default class UserRepository {
   }
 
   public async createUserSchedule(
-    day: string,
-    start_time: string,
-    end_time: string,
+    day: Date,
+    start_time: Date,
+    end_time: Date,
     description: string,
     userId1: number,
     userId2: number
@@ -164,9 +164,9 @@ export default class UserRepository {
   }
 
   public async updateUserSchedule(
-    day: string,
-    start_time: string,
-    end_time: string,
+    day: Date,
+    start_time: Date,
+    end_time: Date,
     description: string,
     scheduleId: number,
   ) {
@@ -184,13 +184,46 @@ export default class UserRepository {
     return userSchedule;
   }
 
-  public async deleteUserSchedule(userScheduleId: number) {
-    const userSchedule = await prismaClient.userSchedule.delete({
+  public async deleteUserSchedule(scheduleId: number) {
+    const userSchedule = await prismaClient.userSchedule.findMany({
       where:{
-        id: userScheduleId
+        scheduleId: scheduleId
+      },
+    })
+
+    for (let i=0; i < userSchedule.length; i++){
+      await prismaClient.userSchedule.delete({
+        where:{
+          id: userSchedule[i].id
+        }
+      })
+    }
+
+    return userSchedule;
+  }
+
+  public async listUserByAvailability() {
+    const user = await prismaClient.user.findMany({
+      select: {
+        name: true,
+        email: true,
+        Profile: {
+          select: {
+            ProfileAvailability: {
+              select: {
+                availability: {
+                  select: {
+                    day: true,
+                    hour: true,
+                  }
+                }
+              }
+            }
+          }
+        },
       }
     })
 
-    return userSchedule;
+    return user;
   }
 }

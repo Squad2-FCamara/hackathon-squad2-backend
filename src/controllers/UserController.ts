@@ -9,6 +9,7 @@ import DeleteUserService from "../services/userServices/DeleteUserService";
 import CreateUserScheduleService from "../services/userServices/CreateUserScheduleService";
 import UpdateUserScheduleService from "../services/userServices/UpdateUserScheduleService";
 import DeleteUserScheduleService from "../services/userServices/DeleteUserScheduleService";
+import ListUserByAvailabilityService from "../services/userServices/ListUserByAvailabilityService";
 
 class UserController {
   public async create(request: Request, response: Response){
@@ -132,9 +133,24 @@ class UserController {
     const service = new DeleteUserScheduleService(userRepository);
 
     try {
-      const { userScheduleId } = request.body;
-      const userSchedule = await service.execute(userScheduleId );
+      const parameter  = request.params;
+      const scheduleId = Number(parameter.scheduleId);
+      const userSchedule = await service.execute(scheduleId );
       return response.status(200).json({userSchedule: userSchedule});
+    } catch (e) {
+      console.log(e)
+      return response.status(500).json({message: 'Something is wrong!'});
+    }
+  }
+
+  public async listUserByAvailability(request: Request, response: Response){
+
+    const userRepository = new UserRepository();
+    const service = new ListUserByAvailabilityService(userRepository);
+
+    try {
+      const user = await service.execute();
+      return response.status(200).json({user: user});
     } catch (e) {
       return response.status(500).json({message: 'Something is wrong!'});
     }

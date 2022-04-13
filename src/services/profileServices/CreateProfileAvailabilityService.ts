@@ -7,7 +7,7 @@ export default class CreateProfileAvailabilityService {
     this.profileRepository = profileRepository;
   }
    
-  public async execute( day: string, hour: string, profileId: number ){
+  public async execute( day: Date, hour: Date, profileId: number ){
     return await this.profileRepository.createProfileAvailability(day, hour, profileId);
   }
   
