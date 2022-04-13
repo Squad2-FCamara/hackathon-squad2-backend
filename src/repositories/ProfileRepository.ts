@@ -79,7 +79,7 @@ export default class ProfileRepository {
     return profiles;
   }
 
-  public async findAll() {
+  public async listAll() {
     const profile = await prismaClient.profile.findMany({
       select: {
         nickname: true,
@@ -213,6 +213,15 @@ export default class ProfileRepository {
             hour: hour
           }
         }
+      }
+    });
+    return profileAvailability;
+  }
+
+  public async deleteProfileAvailability(profileAvailabilityId: number) {
+    const profileAvailability = await prismaClient.profileAvailability.delete({
+      where: {
+        id: profileAvailabilityId
       }
     });
     return profileAvailability;

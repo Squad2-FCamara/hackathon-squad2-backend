@@ -8,6 +8,6 @@ const role = RoleController;
 routerRole.post('/role', role.create);
 routerRole.put('/role', role.update);
 routerRole.delete('/role/:roleId', role.delete);
-routerRole.get('/role', role.findAllRole);
+routerRole.get('/role', role.listAll);
 
 export { routerRole };

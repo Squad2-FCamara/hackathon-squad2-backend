@@ -1,6 +1,6 @@
 import ProfileRepository  from '../../repositories/ProfileRepository';
 
-export default class FindAllProfileService {
+export default class ListAllService {
   private profileRepository: ProfileRepository;
 
   constructor ( profileRepository: ProfileRepository ){
@@ -8,6 +8,6 @@ export default class FindAllProfileService {
   }
 
   public async execute() {
-    return await this.profileRepository.findAll();
+    return await this.profileRepository.listAll();
   }
 }

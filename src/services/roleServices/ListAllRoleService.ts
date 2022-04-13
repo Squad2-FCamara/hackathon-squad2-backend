@@ -1,6 +1,6 @@
 import RoleRepository  from '../../repositories/RoleRepository';
 
-export default class FindAllRoleService {
+export default class ListAllRoleService {
   private roleRepository: RoleRepository;
 
   constructor ( roleRepository: RoleRepository ){
@@ -8,7 +8,7 @@ export default class FindAllRoleService {
   }
 
   public async execute() {
-    return await this.roleRepository.findAll();
+    return await this.roleRepository.listAll();
   }
 
 }

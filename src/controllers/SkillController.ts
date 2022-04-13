@@ -1,7 +1,7 @@
 import { Request, Response } from "express";
 import SkillRepository from "../repositories/SkillRepository";
 import CreateSkillService from "../services/skillServices/CreateSkillService";
-import FindAllSkillService from "../services/skillServices/FindAllSkillService";
+import FindAllSkillService from "../services/skillServices/ListAll";
 import FindSkillByIdService from "../services/skillServices/FindSkillByIdService";
 import UpdateSkillService from "../services/skillServices/UpdateSkillService";
 import DeleteSkillService from "../services/skillServices/DeleteSkillService";
@@ -21,7 +21,7 @@ class SkillController {
     }
   }
 
-  public async findAllSkill(request: Request, response: Response){
+  public async listAll(request: Request, response: Response){
 
     const skillRepository = new SkillRepository();
     const service = new FindAllSkillService(skillRepository);

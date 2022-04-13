@@ -3,7 +3,7 @@ import CreateUserService from "../services/userServices/CreateUserService";
 import UserRepository from "../repositories/UserRepository";
 import FindUserByIdService from "../services/userServices/FindUserByIdService";
 import FindUserByNameService from "../services/userServices/FindUserByNameService";
-import FindAllUserService from "../services/userServices/FindAllUserService";
+import ListAllUserService from "../services/userServices/FindAllUserService";
 import UpdateUserService from "../services/userServices/UpdateUserService";
 import DeleteUserService from "../services/userServices/DeleteUserService";
 import CreateUserScheduleService from "../services/userServices/CreateUserScheduleService";
@@ -55,10 +55,10 @@ class UserController {
     }
   }
 
-  public async findAllUser(request: Request, response: Response){
+  public async listAllUser(request: Request, response: Response){
 
     const userRepository = new UserRepository();
-    const service = new FindAllUserService(userRepository);
+    const service = new ListAllUserService(userRepository);
 
     try {
       const user = await service.execute();

@@ -3,7 +3,7 @@ import RoleRepository from "../repositories/RoleRepository";
 import CreateRoleService from "../services/roleServices/CreateRoleService";
 import UpdateRoleService from "../services/roleServices/UpdateRoleService";
 import DeleteRoleService from "../services/roleServices/DeleteRoleService";
-import FindAllRoleService from "../services/roleServices/FindAllRoleService";
+import FindAllRoleService from "../services/roleServices/ListAllRoleService";
 import FindProfileByRoleService from "../services/roleServices/FindProfileByRoleService";
 
 class RoleController { 
@@ -50,7 +50,7 @@ class RoleController {
     }
   }
 
-  public async findAllRole(request: Request, response: Response){
+  public async listAll(request: Request, response: Response){
 
     const roleRepository = new RoleRepository();
     const service = new FindAllRoleService(roleRepository);

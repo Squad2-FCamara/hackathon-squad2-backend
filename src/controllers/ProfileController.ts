@@ -3,7 +3,7 @@ import ProfileRepository from "../repositories/ProfileRepository";
 import CreateProfileService from "../services/profileServices/CreateProfileService";
 import UpdateProfileService from "../services/profileServices/UpdateProfileService";
 import FindProfileByIdService from "../services/profileServices/FindProfileByIdService";
-import FindAllProfileService from "../services/profileServices/FindAllProfileService";
+import FindAllProfileService from "../services/profileServices/ListAllService";
 import JoinProfileRoleService from "../services/profileServices/JoinProfileRoleService";
 import JoinProfileSkillService from "../services/profileServices/JoinProfileSkillService";
 import FindProfileByNameService from "../services/profileServices/FindProfileByNameService";
@@ -12,6 +12,7 @@ import UpdateProfileAvailabilityService from "../services/profileServices/Update
 import FindProfileBySkillService from "../services/profileServices/FindProfileBySkillService";
 import CreateAddressService from "../services/profileServices/CreateAddressService";
 import UpdateAddressService from "../services/profileServices/UpdateAddressService";
+import DeleteProfileAvailabilityService from "../services/profileServices/DeleteProfileAvailabilityService";
 
 class ProfileController {
   public async create(request: Request, response: Response){
@@ -74,7 +75,7 @@ class ProfileController {
     }
   }
 
-  public async findAllUser(request: Request, response: Response){
+  public async listAll(request: Request, response: Response){
 
     const profileRepository = new ProfileRepository();
     const service = new FindAllProfileService(profileRepository);
@@ -138,6 +139,21 @@ class ProfileController {
     try {
       const { day, hour, profileAvailabilityId  } = request.body;
       const profileAvailability = await service.execute(day, hour, profileAvailabilityId);
+      return response.status(200).json({profileAvailability: profileAvailability});
+    } catch (e) {
+      return response.status(500).json({message: 'Something is wrong!'});
+    }
+  }
+
+  public async deleteProfileAvailability(request: Request, response: Response){
+
+    const profileRepository = new ProfileRepository();
+    const service = new DeleteProfileAvailabilityService(profileRepository);
+
+    try {
+      const parameter = request.params;
+      const profileAvailabilityId = Number(parameter.id);
+      const profileAvailability = await service.execute(profileAvailabilityId);
       return response.status(200).json({profileAvailability: profileAvailability});
     } catch (e) {
       return response.status(500).json({message: 'Something is wrong!'});

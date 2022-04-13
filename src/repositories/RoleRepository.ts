@@ -11,15 +11,15 @@ export default class RoleRepository {
   }
 
   public async update( name: string, roleId: number ) {
-    const skill = await prismaClient.role.update({
-      where: {
+    const role = await prismaClient.role.update({
+      where:{
         id: roleId
       },
-      data: {
+      data:{
         name: name
       }
     })
-    return skill;
+    return role;
   }
 
   public async delete(roleId: number){
@@ -32,14 +32,14 @@ export default class RoleRepository {
     return role;
   }
 
-  public async findAll() {
-    const role = await prismaClient.role.findMany({
+  public async listAll() {
+    const roles = await prismaClient.role.findMany({
       select: {
         name: true
       }
     })
 
-    return role;
+    return roles;
   }
 
   public async findProfileByRole(name: string) {

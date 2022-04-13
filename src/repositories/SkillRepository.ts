@@ -11,7 +11,7 @@ export default class SkillRepository {
     return skill;
   }
 
-  public async findAll() {
+  public async listAll() {
     const skill = await prismaClient.skill.findMany({
       select: {
         name: true

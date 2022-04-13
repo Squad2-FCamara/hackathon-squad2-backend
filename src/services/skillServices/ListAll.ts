@@ -1,6 +1,6 @@
 import SkillRepository  from '../../repositories/SkillRepository';
 
-export default class FindAllSkillService {
+export default class ListAllService {
   private skillRepository: SkillRepository;
 
   constructor ( skillRepository: SkillRepository ){
@@ -8,7 +8,7 @@ export default class FindAllSkillService {
   }
 
   public async execute() {
-    return await this.skillRepository.findAll();
+    return await this.skillRepository.listAll();
   }
 
 }

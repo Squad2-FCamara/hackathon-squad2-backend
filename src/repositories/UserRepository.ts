@@ -41,7 +41,7 @@ export default class UserRepository {
     return user;
   }
 
-  public async findAll() {
+  public async listAllUser() {
     const user = await prismaClient.user.findMany({
       select: {
         name: true,
@@ -191,13 +191,21 @@ export default class UserRepository {
       },
     })
 
-    for (let i=0; i < userSchedule.length; i++){
+    for (let item of userSchedule){
       await prismaClient.userSchedule.delete({
         where:{
-          id: userSchedule[i].id
+          id: item.id
         }
       })
     }
+
+    // for (let i=0; i < userSchedule.length; i++){
+    //   await prismaClient.userSchedule.delete({
+    //     where:{
+    //       id: userSchedule[i].id
+    //     }
+    //   })
+    // }
 
     return userSchedule;
   }
