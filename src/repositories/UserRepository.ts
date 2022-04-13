@@ -30,7 +30,9 @@ export default class UserRepository {
   public async findByName(name: string) {
     const user = await prismaClient.user.findMany({
       where: {
-        name: name
+        name: {
+          startsWith: name
+        }
       },
       select: {
         name: true,
@@ -44,6 +46,7 @@ export default class UserRepository {
   public async listAllUser() {
     const user = await prismaClient.user.findMany({
       select: {
+        id: true,
         name: true,
         email: true,
         UserSchedule: {
@@ -214,6 +217,7 @@ export default class UserRepository {
     const user = await prismaClient.user.findMany({
       select: {
         name: true,
+        id: true,
         email: true,
         Profile: {
           select: {
@@ -229,6 +233,25 @@ export default class UserRepository {
             }
           }
         },
+      }
+    })
+
+    return user;
+  }
+
+  public async listUserBySchedule() {
+    const user = await prismaClient.user.findMany({
+      select: {
+        name: true,
+        id: true,
+        email: true,
+        UserSchedule:{
+          select:{
+            schedule:{
+              include:{}
+            }
+          }
+        }
       }
     })
 

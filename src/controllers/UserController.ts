@@ -3,13 +3,14 @@ import CreateUserService from "../services/userServices/CreateUserService";
 import UserRepository from "../repositories/UserRepository";
 import FindUserByIdService from "../services/userServices/FindUserByIdService";
 import FindUserByNameService from "../services/userServices/FindUserByNameService";
-import ListAllUserService from "../services/userServices/FindAllUserService";
+import ListAllUserService from "../services/userServices/ListAllUserService";
 import UpdateUserService from "../services/userServices/UpdateUserService";
 import DeleteUserService from "../services/userServices/DeleteUserService";
 import CreateUserScheduleService from "../services/userServices/CreateUserScheduleService";
 import UpdateUserScheduleService from "../services/userServices/UpdateUserScheduleService";
 import DeleteUserScheduleService from "../services/userServices/DeleteUserScheduleService";
 import ListUserByAvailabilityService from "../services/userServices/ListUserByAvailabilityService";
+import ListUserByScheduleService from "../services/userServices/ListUserByScheduleService";
 
 class UserController {
   public async create(request: Request, response: Response){
@@ -147,8 +148,21 @@ class UserController {
     const service = new ListUserByAvailabilityService(userRepository);
 
     try {
-      const user = await service.execute();
-      return response.status(200).json({user: user});
+      const users = await service.execute();
+      return response.status(200).json({user: users});
+    } catch (e) {
+      return response.status(500).json({message: 'Something is wrong!'});
+    }
+  }
+
+  public async listUserBySchedule(request: Request, response: Response){
+
+    const userRepository = new UserRepository();
+    const service = new ListUserByScheduleService(userRepository);
+
+    try {
+      const users = await service.execute();
+      return response.status(200).json({user: users});
     } catch (e) {
       return response.status(500).json({message: 'Something is wrong!'});
     }

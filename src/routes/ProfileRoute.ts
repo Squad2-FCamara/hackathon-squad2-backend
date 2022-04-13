@@ -16,7 +16,7 @@ routerProfile.get('/profile/skill/:skill', profile.findProfileBySkill);
 routerProfile.patch('/profile/role', profile.joinProfileRole);
 routerProfile.post('/profile/skill', profile.joinProfileSkill);
 
-routerProfile.post('/profile/address/', profile.createAddress);
+routerProfile.post('/profile/address', profile.createAddress);
 routerProfile.put('/profile/address', profile.updateAddress);
 
 routerProfile.post('/profile/availability/', profile.createProfileAvailability);
