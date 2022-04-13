@@ -288,6 +288,13 @@ export default class UserRepository {
                 end_time: true,
                 description: true
               }
+            },
+            user:{
+              select:{
+                id: true,
+                name: true,
+                email: true
+              }
             }
           }
         }
@@ -313,6 +320,13 @@ export default class UserRepository {
                 start_time: true,
                 end_time: true,
                 description: true
+              }
+            },
+            user:{
+              select:{
+                id: true,
+                name: true,
+                email: true
               }
             }
           }
