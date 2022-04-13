@@ -11,6 +11,8 @@ import UpdateUserScheduleService from "../services/userServices/UpdateUserSchedu
 import DeleteUserScheduleService from "../services/userServices/DeleteUserScheduleService";
 import ListUserByAvailabilityService from "../services/userServices/ListUserByAvailabilityService";
 import ListUserByScheduleService from "../services/userServices/ListUserByScheduleService";
+import ListAllUserByAvailabilityService from "../services/userServices/ListAllUserByAvailabilityService";
+import ListAllUserByScheduleService from "../services/userServices/ListAllUserByScheduleService";
 
 class UserController {
   public async create(request: Request, response: Response){
@@ -137,7 +139,6 @@ class UserController {
       const userSchedule = await service.execute(scheduleId );
       return response.status(200).json({userSchedule: userSchedule});
     } catch (e) {
-      console.log(e)
       return response.status(500).json({message: 'Something is wrong!'});
     }
   }
@@ -148,12 +149,28 @@ class UserController {
     const service = new ListUserByAvailabilityService(userRepository);
 
     try {
+      const id  = request.params;
+      const userId = Number(id.userId);
+      const users = await service.execute(userId);
+      return response.status(200).json({user: users});
+    } catch (e) {
+      return response.status(500).json({message: 'Something is wrong!'});
+    }
+  }
+
+  public async listAllUserByAvailability(request: Request, response: Response){
+
+    const userRepository = new UserRepository();
+    const service = new ListAllUserByAvailabilityService(userRepository);
+
+    try {
       const users = await service.execute();
       return response.status(200).json({user: users});
     } catch (e) {
       return response.status(500).json({message: 'Something is wrong!'});
     }
   }
+
 
   public async listUserBySchedule(request: Request, response: Response){
 
@@ -164,6 +181,19 @@ class UserController {
       const id  = request.params;
       const userId = Number(id.userId);
       const users = await service.execute(userId);
+      return response.status(200).json({user: users});
+    } catch (e) {
+      return response.status(500).json({message: 'Something is wrong!'});
+    }
+  }
+
+  public async listAllUserBySchedule(request: Request, response: Response){
+
+    const userRepository = new UserRepository();
+    const service = new ListAllUserByScheduleService(userRepository);
+
+    try {
+      const users = await service.execute();
       return response.status(200).json({user: users});
     } catch (e) {
       return response.status(500).json({message: 'Something is wrong!'});

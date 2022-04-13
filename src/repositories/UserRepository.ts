@@ -213,8 +213,11 @@ export default class UserRepository {
     return userSchedule;
   }
 
-  public async listUserByAvailability() {
-    const user = await prismaClient.user.findMany({
+  public async listUserByAvailability(userId: number) {
+    const user = await prismaClient.user.findUnique({
+      where:{
+        id: userId
+      },
       select: {
         name: true,
         id: true,
@@ -239,6 +242,32 @@ export default class UserRepository {
     return user;
   }
 
+  public async listAllUserByAvailability() {
+    const users = await prismaClient.user.findMany({
+      select: {
+        name: true,
+        id: true,
+        email: true,
+        Profile: {
+          select: {
+            ProfileAvailability: {
+              select: {
+                availability: {
+                  select: {
+                    day: true,
+                    hour: true,
+                  }
+                }
+              }
+            }
+          }
+        },
+      }
+    })
+
+    return users;
+  }
+
   public async listUserBySchedule(userId: number) {
     const user = await prismaClient.user.findUnique({
       where:{
@@ -259,6 +288,25 @@ export default class UserRepository {
     })
 
     return user;
+  }
+
+  public async listAllUserBySchedule() {
+    const users = await prismaClient.user.findMany({
+      select: {
+        name: true,
+        id: true,
+        email: true,
+        UserSchedule:{
+          select:{
+            schedule:{
+              select:{}
+            }
+          }
+        }
+      }
+    })
+
+    return users;
   }
 
 }
