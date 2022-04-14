@@ -6,7 +6,8 @@
   "scripts": {
     "dev": "npx ts-node-dev ./src/index.ts",
     "start": "node dist/index.ts",
-    "postinstall": "npx tsc"
+    "postinstall": "npm run tsc",
+    "tsc": "tsc"
   },
   "keywords": [],
   "author": "",
