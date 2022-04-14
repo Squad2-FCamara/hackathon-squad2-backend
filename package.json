@@ -5,8 +5,8 @@
   "main": "index.ts",
   "scripts": {
     "dev": "npx ts-node-dev ./src/index.ts",
-    "start": "node dist/index.ts",
-    "build": "tsc"
+    "start": "npx ts-node ./src/index.ts",
+    "postinstall": "tsc"
   },
   "keywords": [],
   "author": "",
