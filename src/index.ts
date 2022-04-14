@@ -14,7 +14,7 @@ app.use(routerProfile);
 app.use(routerSkill);
 app.use(routerRole);
 
-app.listen();
+app.listen(process.env.PORT || 5000);
 // app.listen(4000, () =>
 //   console.log('REST API server ready at: http://localhost:4000'),
 // );
