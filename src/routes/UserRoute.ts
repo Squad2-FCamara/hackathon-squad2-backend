@@ -19,6 +19,9 @@ routerUser.delete('/user/schedule/:scheduleId', user.deleteUserSchedule);
 routerUser.get('/user/schedule', user.listAllUserBySchedule);
 
 routerUser.get('/user/availability/:userId', user.listUserByAvailability);
-routerUser.get('/user/availability/', user.listAllUserByAvailability)
+routerUser.get('/user/availability/', user.listAllUserByAvailability);
+
+routerUser.post('/user/contact', user.addContact);
+routerUser.delete('/user/contact/:userProfileId', user.removeUserProfile);
 
 export { routerUser };

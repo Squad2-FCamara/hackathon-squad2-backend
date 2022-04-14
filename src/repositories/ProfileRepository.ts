@@ -294,6 +294,11 @@ export default class ProfileRepository {
       where: {
         OR: [
           {
+            nickname: {
+              contains: name
+            }
+          },
+          {
             seniority: {
               contains: name
             }

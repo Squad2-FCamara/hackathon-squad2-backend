@@ -13,6 +13,8 @@ import ListUserByAvailabilityService from "../services/userServices/ListUserByAv
 import ListUserByScheduleService from "../services/userServices/ListUserByScheduleService";
 import ListAllUserByAvailabilityService from "../services/userServices/ListAllUserByAvailabilityService";
 import ListAllUserByScheduleService from "../services/userServices/ListAllUserByScheduleService";
+import AddContactRoleService from "../services/userServices/AddContactService";
+import RemoveContactService from "../services/userServices/RemoveContactService";
 
 class UserController {
   public async create(request: Request, response: Response){
@@ -196,6 +198,35 @@ class UserController {
     try {
       const users = await service.execute();
       return response.status(200).json({user: users});
+    } catch (e) {
+      return response.status(500).json({message: 'Something is wrong!'});
+    }
+  }
+
+  public async addContact(request: Request, response: Response) {
+
+    const userRepository = new UserRepository();
+    const service = new AddContactRoleService(userRepository);
+
+    try {
+      const { userId, profileId } = request.body;
+      const users = await service.execute(userId, profileId);
+      return response.status(201).json(users);
+    } catch (e) {
+      return response.status(500).json({message: 'Something is wrong!'});
+    }
+  }
+
+  public async removeUserProfile(request: Request, response: Response){
+
+    const userRepository = new UserRepository();
+    const service = new RemoveContactService(userRepository);
+
+    try {
+      const parameter  = request.params;
+      const userProfileId = Number(parameter.userProfileId);
+      const userProfile = await service.execute(userProfileId );
+      return response.status(200).json(userProfile);
     } catch (e) {
       return response.status(500).json({message: 'Something is wrong!'});
     }
