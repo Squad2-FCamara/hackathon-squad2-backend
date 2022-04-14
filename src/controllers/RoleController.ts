@@ -27,9 +27,9 @@ class RoleController {
     const service = new UpdateRoleService(roleRepository);
 
     try {
-      const { nome, roleId  } = request.body;
-      const role = await service.execute(nome, roleId);
-      return response.status(200).json({role: role})
+      const { name, roleId  } = request.body;
+      const role = await service.execute(name, roleId);
+      return response.status(200).json(role)
     } catch (e) {
       return response.status(500).json({message: 'Something is wrong!'})
     }

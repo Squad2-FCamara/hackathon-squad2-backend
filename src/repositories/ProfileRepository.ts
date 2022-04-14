@@ -290,18 +290,24 @@ export default class ProfileRepository {
       where: {
         OR: [
           {
-            seniority: name
+            seniority: {
+              contains: name
+            }
           },
           {
             Role: {
-              name: name
+              name: {
+                contains: name
+              }
             }
           },
           {
             ProfileSkill: {
               some: {
                 skill: {
-                  name: name
+                  name: {
+                    contains: name
+                  }
                 }
               }
             }
