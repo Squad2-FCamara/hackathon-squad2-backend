@@ -45,7 +45,6 @@ class SkillController {
       const skill = await service.execute(skillId);
       return response.status(200).json({skill: skill})
     } catch (e) {
-      console.log(e)
       return response.status(500).json({message: 'Something is wrong!'})
     }
   }

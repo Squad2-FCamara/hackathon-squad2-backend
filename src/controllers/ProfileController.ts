@@ -55,7 +55,6 @@ class ProfileController {
       const profile = await service.execute(profileId);
       return response.status(200).json({profile: profile})
     } catch (e) {
-      console.log(e)
       return response.status(500).json({message: 'Something is wrong!'})
     }
   }
@@ -71,7 +70,6 @@ class ProfileController {
       const profile = await service.execute(name);
       return response.status(200).json({profile: profile})
     } catch (e) {
-      console.log(e)
       return response.status(500).json({message: 'Something is wrong!'})
     }
   }
@@ -127,7 +125,6 @@ class ProfileController {
       const profileAvailability = await service.execute(day, start_time, end_time, profileId);
       return response.status(201).json({profileAvailability: profileAvailability});
     } catch (e) {
-      console.log(e)
       return response.status(500).json({message: 'Something is wrong!'});
     }
   }
@@ -172,7 +169,6 @@ class ProfileController {
       const profile = await service.execute(skill);
       return response.status(200).json(profile);
     } catch (e) {
-      console.log(e)
       return response.status(500).json({message: 'Something is wrong!'})
     }
   }
@@ -216,7 +212,6 @@ class ProfileController {
       const profile = await service.execute(feature);
       return response.status(200).json(profile);
     } catch (e) {
-      console.log(e)
       return response.status(500).json({message: 'Something is wrong!'})
     }
   }

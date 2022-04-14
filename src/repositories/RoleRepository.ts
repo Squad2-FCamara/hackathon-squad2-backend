@@ -11,7 +11,6 @@ export default class RoleRepository {
   }
 
   public async update( name: string, roleId: number ) {
-    console.log(name)
     const role = await prismaClient.role.update({
       where:{
         id: roleId

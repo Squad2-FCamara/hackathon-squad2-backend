@@ -184,7 +184,6 @@ class UserController {
       const users = await service.execute(userId);
       return response.status(200).json(users);
     } catch (e) {
-      console.log(e)
       return response.status(500).json({message: 'Something is wrong!'});
     }
   }
