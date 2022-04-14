@@ -324,6 +324,13 @@ export default class ProfileRepository {
         ]
       },
       select: {
+        user:{
+          select:{
+            id: true,
+            name: true,
+            email:true
+          }
+        },
         nickname: true,
         description: true,
         photo: true,
