@@ -171,7 +171,6 @@ class UserController {
     }
   }
 
-
   public async listUserBySchedule(request: Request, response: Response){
 
     const userRepository = new UserRepository();

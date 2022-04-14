@@ -22,6 +22,6 @@ routerProfile.put('/profile/address', profile.updateAddress);
 
 routerProfile.post('/profile/availability/', profile.createProfileAvailability);
 routerProfile.put('/profile/availability', profile.updateProfileAvailability);
-routerProfile.delete('profile/availability/:id', profile.deleteProfileAvailability)
+routerProfile.delete('/profile/availability/:id', profile.deleteProfileAvailability)
 
 export { routerProfile };
