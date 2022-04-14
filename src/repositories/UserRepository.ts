@@ -49,6 +49,15 @@ export default class UserRepository {
         id: true,
         name: true,
         email: true,
+        UserProfile:{
+          select:{
+            profile:{
+              select:{
+                nickname: true
+              }
+            }
+          }
+        },
         UserSchedule: {
           select: {
             schedule: {
@@ -61,6 +70,7 @@ export default class UserRepository {
             },
           }
         },
+
         Profile: {
           select: {
             nickname: true,
@@ -85,7 +95,8 @@ export default class UserRepository {
                 availability: {
                   select: {
                     day: true,
-                    hour: true,
+                    start_time: true,
+                    end_time: true
                   }
                 }
               }
@@ -230,7 +241,8 @@ export default class UserRepository {
                   select: {
                     id: true,
                     day: true,
-                    hour: true,
+                    start_time: true,
+                    end_time: true
                   }
                 }
               }
@@ -257,7 +269,8 @@ export default class UserRepository {
                   select: {
                     id: true,
                     day: true,
-                    hour: true,
+                    start_time: true,
+                    end_time: true
                   }
                 }
               }
@@ -283,12 +296,8 @@ export default class UserRepository {
               select:{
                 user:{
                   select:{
-                    id: true,
-                    name: true,
-                    email: true,
                     Profile:{
                       select:{
-                        photo: true,
                         seniority: true,
                         Role:{
                           select:{
@@ -303,7 +312,6 @@ export default class UserRepository {
             }
           }
         },
-
       }
     })
     return users;
@@ -323,7 +331,7 @@ export default class UserRepository {
                 day: true,
                 created_at: true,
                 start_time: true,
-                end_time: true,
+                end_time: true, 
                 description: true
               }
             },
@@ -340,6 +348,35 @@ export default class UserRepository {
     })
 
     return users;
+  }
+
+  public async addContact(userId: number, profileId: number) {
+    const user = await prismaClient.userProfile.create({
+      data:{
+        user:{
+          connect: {
+            id: userId
+          }
+        },
+        profile:{
+          connect:{
+            id: profileId
+          }
+        }
+      }
+    })
+
+    return user;
+  }
+
+  public async removeContact(userProfileId: number) {
+    const contact = await prismaClient.userProfile.delete({
+      where:{
+        id: userProfileId
+      }
+    });
+
+    return contact;
   }
 
 }

@@ -104,7 +104,8 @@ export default class ProfileRepository {
             availability: {
               select: {
                 day: true,
-                hour: true,
+                start_time: true,
+                end_time: true
               }
             }
           }
@@ -181,13 +182,14 @@ export default class ProfileRepository {
     return profile;
   }
 
-  public async createProfileAvailability(day: Date, hour: Date, profileId: number) {
+  public async createProfileAvailability(day: Date, start_time: Date, end_time: Date, profileId: number) {
     const profileAvailability = await prismaClient.profileAvailability.create({
       data: {
         availability: {
           create: {
             day: day,
-            hour: hour
+            start_time: start_time,
+            end_time: end_time
           }
         },
         profile: {
@@ -201,7 +203,7 @@ export default class ProfileRepository {
     return profileAvailability;
   }
 
-  public async updateProfileAvailability(day: Date, hour: Date, profileAvailabilityId: number) {
+  public async updateProfileAvailability(day: Date, start_time: Date, end_time: Date, profileAvailabilityId: number) {
     const profileAvailability = await prismaClient.profileAvailability.update({
       where: {
         id: profileAvailabilityId
@@ -210,7 +212,8 @@ export default class ProfileRepository {
         availability: {
           update: {
             day: day,
-            hour: hour
+            start_time: start_time,
+            end_time: end_time
           }
         }
       }
@@ -291,8 +294,13 @@ export default class ProfileRepository {
       where: {
         OR: [
           {
+            nickname: {
+              contains: name
+            }
+          },
+          {
             seniority: {
-              contains: name,
+              contains: name
             }
           },
           {

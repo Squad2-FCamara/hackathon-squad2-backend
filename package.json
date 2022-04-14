@@ -3,19 +3,6 @@
   "version": "1.0.0",
   "description": "",
   "main": "server.ts",
-  "nodemonConfig": {
-    "watch": [
-      "server"
-    ],
-    "ext": "ts",
-    "ignore": [
-      "*.test.ts"
-    ],
-    "delay": "3",
-    "execMap": {
-      "ts": "ts-node"
-    }
-  },
   "scripts": {
     "start": "npx ts-node-dev ./src/server.ts "
   },
