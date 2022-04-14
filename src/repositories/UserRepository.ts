@@ -269,39 +269,42 @@ export default class UserRepository {
   }
 
   public async listUserBySchedule(userId: number) {
-    const user = await prismaClient.user.findUnique({
+    const users = await prismaClient.userSchedule.findMany({
       where:{
-        id: userId
+        userId: userId
       },
-      select: {
-        name: true,
-        id: true,
-        email: true,
-        UserSchedule:{
-          select:{
-            schedule:{
-              select: {
-                id: true,
-                day: true,
-                created_at: true,
-                start_time: true,
-                end_time: true,
-                description: true
-              }
-            },
-            user:{
+      select:{
+        user:{},
+        schedule:{
+          include:{
+            UserSchedule:{
               select:{
-                id: true,
-                name: true,
-                email: true
+                user:{
+                  select:{
+                    id: true,
+                    name: true,
+                    email: true,
+                    Profile:{
+                      select:{
+                        photo: true,
+                        seniority: true,
+                        Role:{
+                          select:{
+                            name: true
+                          }
+                        }
+                      }
+                    }
+                  }
+                }
               }
             }
           }
-        }
+        },
+
       }
     })
-
-    return user;
+    return users;
   }
 
   public async listAllUserBySchedule() {
