@@ -2,9 +2,9 @@
   "name": "hackathon-squad2-backend",
   "version": "1.0.0",
   "description": "",
-  "main": "server.ts",
+  "main": "index.ts",
   "scripts": {
-    "start": "npx --exec ts-node-dev ./src/server.ts"
+    "start": "npx ts-node-dev ./src/index.ts"
   },
   "keywords": [],
   "author": "",
