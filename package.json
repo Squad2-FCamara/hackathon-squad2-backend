@@ -6,7 +6,7 @@
   "scripts": {
     "dev": "npx ts-node-dev ./src/index.ts",
     "start": "node dist/index.ts",
-    "postinstall": "npm install typescript && tsc"
+    "postinstall": "npm install typescript && apt install node-typescript"
   },
   "keywords": [],
   "author": "",
