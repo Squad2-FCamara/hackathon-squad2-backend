@@ -228,6 +228,7 @@ export default class UserRepository {
               select: {
                 availability: {
                   select: {
+                    id: true,
                     day: true,
                     hour: true,
                   }
@@ -254,6 +255,7 @@ export default class UserRepository {
               select: {
                 availability: {
                   select: {
+                    id: true,
                     day: true,
                     hour: true,
                   }
