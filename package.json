@@ -4,7 +4,8 @@
   "description": "",
   "main": "index.ts",
   "scripts": {
-    "start": "npx ts-node-dev ./src/index.ts"
+    "dev": "npx ts-node-dev ./src/index.ts",
+    "start": "npm i typescript && npm run tsc"
   },
   "keywords": [],
   "author": "",
@@ -21,6 +22,7 @@
   "dependencies": {
     "@prisma/client": "^3.12.0",
     "cors": "^2.8.5",
-    "express": "^4.17.3"
+    "express": "^4.17.3",
+    "tsc": "^2.0.4"
   }
 }
