@@ -296,6 +296,9 @@ export default class UserRepository {
               select:{
                 user:{
                   select:{
+                    id: true,
+                    name: true,
+                    email: true,
                     Profile:{
                       select:{
                         seniority: true,
