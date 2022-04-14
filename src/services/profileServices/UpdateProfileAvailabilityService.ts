@@ -7,8 +7,8 @@ export default class UpdateProfileAvailabilityService {
     this.profileRepository = profileRepository;
   }
 
-  public async execute( day: Date, hour: Date, profileAvailabilityId: number ) {
-    return await this.profileRepository.updateProfileAvailability(day, hour, profileAvailabilityId);
+  public async execute( day: Date, start_time: Date, end_time: Date, profileAvailabilityId: number ) {
+    return await this.profileRepository.updateProfileAvailability(day, start_time, end_time, profileAvailabilityId);
   }
   
 }

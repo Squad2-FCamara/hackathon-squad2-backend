@@ -85,7 +85,8 @@ export default class UserRepository {
                 availability: {
                   select: {
                     day: true,
-                    hour: true,
+                    start_time: true,
+                    end_time: true
                   }
                 }
               }
@@ -229,7 +230,8 @@ export default class UserRepository {
                 availability: {
                   select: {
                     day: true,
-                    hour: true,
+                    start_time: true,
+                    end_time: true
                   }
                 }
               }
@@ -255,7 +257,8 @@ export default class UserRepository {
                 availability: {
                   select: {
                     day: true,
-                    hour: true,
+                    start_time: true,
+                    end_time: true
                   }
                 }
               }

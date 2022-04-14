@@ -123,8 +123,8 @@ class ProfileController {
     const service = new CreateProfileAvailabilityService(profileRepository);
 
     try {
-      const { day, hour, profileId  } = request.body;
-      const profileAvailability = await service.execute(day, hour, profileId);
+      const { day, start_time, end_time, profileId  } = request.body;
+      const profileAvailability = await service.execute(day, start_time, end_time, profileId);
       return response.status(201).json({profileAvailability: profileAvailability});
     } catch (e) {
       console.log(e)
@@ -138,8 +138,8 @@ class ProfileController {
     const service = new UpdateProfileAvailabilityService(profileRepository);
 
     try {
-      const { day, hour, profileAvailabilityId  } = request.body;
-      const profileAvailability = await service.execute(day, hour, profileAvailabilityId);
+      const { day, start_time, end_time, profileAvailabilityId  } = request.body;
+      const profileAvailability = await service.execute(day, start_time, end_time, profileAvailabilityId);
       return response.status(200).json({profileAvailability: profileAvailability});
     } catch (e) {
       return response.status(500).json({message: 'Something is wrong!'});
