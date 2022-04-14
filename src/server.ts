@@ -3,7 +3,7 @@ import { routerUser } from './routes/UserRoute';
 import { routerProfile } from './routes/ProfileRoute';
 import { routerSkill } from './routes/SkillRouter';
 import { routerRole } from './routes/RoleRoute';
-const cors = require('cors')
+import cors from 'cors';
 
 const app = express();
 
