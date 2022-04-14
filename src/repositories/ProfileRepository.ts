@@ -240,9 +240,9 @@ export default class ProfileRepository {
       where: {
         id: profileId
       },
-      data:{
-        Address:{
-          create:{
+      data: {
+        Address: {
+          create: {
             street: street,
             number: number,
             cep: cep,
@@ -264,14 +264,14 @@ export default class ProfileRepository {
     country: string,
     state: string,
     city: string
-    ){
+  ) {
     const address = await prismaClient.profile.update({
       where: {
         id: profileId
       },
-      data:{
-        Address:{
-          update:{
+      data: {
+        Address: {
+          update: {
             street: street,
             number: number,
             cep: cep,
@@ -283,6 +283,54 @@ export default class ProfileRepository {
       }
     });
     return address;
+  }
+
+  public async findProfileByFeature(name: string) {
+    const profile = await prismaClient.profile.findMany({
+      where: {
+        OR: [
+          {
+            seniority: name
+          },
+          {
+            Role: {
+              name: name
+            }
+          },
+          {
+            ProfileSkill: {
+              some: {
+                skill: {
+                  name: name
+                }
+              }
+            }
+          }
+        ]
+      },
+      select: {
+        nickname: true,
+        description: true,
+        photo: true,
+        seniority: true,
+        updated_at: true,
+        Role: {
+          select: {
+            name: true
+          }
+        },
+        ProfileSkill: {
+          select: {
+            skill: {
+              select: {
+                name: true
+              }
+            }
+          }
+        }
+      }
+    });
+    return profile;
   }
 
 }

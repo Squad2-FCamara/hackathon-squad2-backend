@@ -12,6 +12,7 @@ routerProfile.get('/profile', profile.listAll);
 routerProfile.get('/profile/:profileId', profile.findById);
 routerProfile.get('/profile/name/:name', profile.findByName);
 routerProfile.get('/profile/skill/:skill', profile.findProfileBySkill);
+routerProfile.get('/profile/feature/:feature', profile.findProfileByFeature)
 
 routerProfile.patch('/profile/role', profile.joinProfileRole);
 routerProfile.post('/profile/skill', profile.joinProfileSkill);

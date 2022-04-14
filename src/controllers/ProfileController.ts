@@ -13,6 +13,7 @@ import FindProfileBySkillService from "../services/profileServices/FindProfileBy
 import CreateAddressService from "../services/profileServices/CreateAddressService";
 import UpdateAddressService from "../services/profileServices/UpdateAddressService";
 import DeleteProfileAvailabilityService from "../services/profileServices/DeleteProfileAvailabilityService";
+import FindProfileByFeatureService from "../services/profileServices/FindProfileByFeatureService";
 
 class ProfileController {
   public async create(request: Request, response: Response){
@@ -200,6 +201,22 @@ class ProfileController {
       const profile = await service.execute(profileId, street, number, cep, country, state, city);
       return response.status(200).json({profile: profile})
     } catch (e) {
+      return response.status(500).json({message: 'Something is wrong!'})
+    }
+  }
+
+  public async findProfileByFeature(request: Request, response: Response){
+
+    const profileRepository = new ProfileRepository();
+    const service = new FindProfileByFeatureService(profileRepository);
+
+    try {
+      const parameter = request.params;
+      const feature = parameter.feature;
+      const profile = await service.execute(feature);
+      return response.status(200).json(profile);
+    } catch (e) {
+      console.log(e)
       return response.status(500).json({message: 'Something is wrong!'})
     }
   }
