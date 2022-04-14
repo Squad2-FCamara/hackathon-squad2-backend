@@ -221,6 +221,16 @@ export default class ProfileRepository {
     return profileAvailability;
   }
 
+  public async deleteProfileAvailability(profileAvailabilityId: number) {
+    const user = await prismaClient.user.delete({
+      where: {
+        id: profileAvailabilityId
+      }
+    })
+
+    return user;
+  }
+
   public async createAddress(
     profileId: number,
     street: string,
@@ -234,9 +244,9 @@ export default class ProfileRepository {
       where: {
         id: profileId
       },
-      data:{
-        Address:{
-          create:{
+      data: {
+        Address: {
+          create: {
             street: street,
             number: number,
             cep: cep,
@@ -258,14 +268,14 @@ export default class ProfileRepository {
     country: string,
     state: string,
     city: string
-    ){
+  ) {
     const address = await prismaClient.profile.update({
       where: {
         id: profileId
       },
-      data:{
-        Address:{
-          update:{
+      data: {
+        Address: {
+          update: {
             street: street,
             number: number,
             cep: cep,
@@ -277,6 +287,61 @@ export default class ProfileRepository {
       }
     });
     return address;
+  }
+
+  public async findProfileByFeature(name: string) {
+    const profile = await prismaClient.profile.findMany({
+      where: {
+        OR: [
+          {
+            seniority: {
+              contains: name
+            }
+          },
+          {
+            Role: {
+              name: {
+                contains: name
+              }
+            }
+          },
+          {
+            ProfileSkill: {
+              some: {
+                skill: {
+                  name: {
+                    contains: name
+                  }
+                }
+              }
+            }
+          }
+        ]
+      },
+      select: {
+        nickname: true,
+        description: true,
+        photo: true,
+        seniority: true,
+        updated_at: true,
+        Role: {
+          select: {
+            name: true
+          }
+        },
+        ProfileSkill: {
+          select: {
+            skill: {
+              select: {
+                name: true
+              }
+            }
+          }
+        }
+
+      }
+    });
+    return profile;
   }
 
 }
