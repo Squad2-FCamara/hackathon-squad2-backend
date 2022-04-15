@@ -4,7 +4,13 @@
  
 > Status: em andamento
 
-O objetivo do projeto é a construção de um back-end para o Technical Share, cujo front-end [está neste repositório](https://github.com/Squad2-FCamara/hackathon-squad2-frontend).
+O objetivo do projeto é a construção de um back-end para o Technical Share, cujo front-end [está neste repositório](https://github.com/Squad2-FCamara/hackathon-squad2-frontend). O Technical Share é um espaço criado para agendar mentorias entre as pessoas do grupo FCamara (os Sangues Laranjas).
+Nela, pode-se encontrar especialistas com a habilidade que seja, e assim, marcar a sua mentoria. Além disso, nela, você pode ser o mentor, basta adicionar os horários disponíveis na sua agenda para que as outras pessoas saibam quando você estará dispónivel. Espero que gostem.
+
+O deploy do back-end foi feito no Heroku e pode ser acessado pelo link: https://fcamara-squad2.herokuapp.com
+
+No repositório do projeto, encontra-se também as requisições usadas no software Insomnia.
+
 
 ## 🚀 Tecnologias utilizadas
 - NodeJS
@@ -39,7 +45,3 @@ npm start
 ```
 npx prisma studio
 ``` 
-
-O deploy do back-end foi feito no Heroku e pode ser acessado pelo link: https://fcamara-squad2.herokuapp.com
-
-No repositório do projeto, encontra-se também as requisições usadas no software Insomnia.
