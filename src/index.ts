@@ -9,13 +9,9 @@ import cors from 'cors';
 
 const app = express();
 
+app.use(cors())
 app.use(express.json());
 
-app.use((req, res, next) => {
-  res.header("Acess-Control-Allow-Origin","*");
-  app.use(cors());
-  next();
-})
 app.use(routerUser);
 app.use(routerProfile);
 app.use(routerSkill);
