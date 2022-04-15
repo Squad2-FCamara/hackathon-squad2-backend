@@ -31,7 +31,7 @@ npm install
 ```
 npx prisma db push
 ``` 
-5. Rodar o servidor (abrirá em localhost 4000):
+5. Rodar o servidor (abrirá em localhost 5000):
 ```
 npm start
 ``` 
@@ -39,3 +39,6 @@ npm start
 ```
 npx prisma studio
 ``` 
+
+O deploy do back-end foi feito no Heroku e pode ser acessado pelo link: https://fcamara-squad2.herokuapp.com
+No repositório do projeto, encontra-se também as requisições usadas no software Insomnia.
