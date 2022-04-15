@@ -1,0 +1,32 @@
+_id: req_ef7c6a21cace4392b9bd1b58c54b38ef
+type: Request
+parentId: fld_ccdf5c799bbe449abcfa65a073d721e1
+modified: 1650038316472
+created: 1649714312007
+url: https://fcamara-squad2.herokuapp.com/user
+name: Update User
+description: ""
+method: PUT
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"userId": 2,
+    	"name": "aline avelino",
+    	"email": "aline@fcamara.com",
+    	"password": "321"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_a3d0fc9574e94abaaf6b642aeb0659f5
+authentication: {}
+metaSortKey: -1649714312007
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

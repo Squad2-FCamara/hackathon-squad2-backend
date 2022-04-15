@@ -1,0 +1,21 @@
+_id: req_1535e59d3cb94bc39cfadef32307d35f
+type: Request
+parentId: fld_ccdf5c799bbe449abcfa65a073d721e1
+modified: 1650038362606
+created: 1649875313622
+url: https://fcamara-squad2.herokuapp.com/user/schedule/1
+name: List User By Schedule
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1649602448397.125
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

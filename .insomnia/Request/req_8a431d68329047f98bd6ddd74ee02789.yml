@@ -1,0 +1,33 @@
+_id: req_8a431d68329047f98bd6ddd74ee02789
+type: Request
+parentId: fld_60178d3ea8be4673b76819d3a6997fbe
+modified: 1650038258640
+created: 1649724876630
+url: https://fcamara-squad2.herokuapp.com/profile
+name: Update Profile
+description: ""
+method: PUT
+body:
+  mimeType: application/json
+  text: >-
+    {
+    	"nickname": "takata",
+    	"seniority": "trainee",
+    	"description": "Pensando na oportunidade da FCamara",
+    	"photo": "https://www.google.com/imgres?imgurl=https%3A%2F%2Fcdn.pixabay.com%2Fphoto%2F2015%2F10%2F05%2F22%2F37%2Fblank-profile-picture-973460__480.png&imgrefurl=https%3A%2F%2Fpixabay.com%2Fpt%2Fvectors%2Fsearch%2Ffoto%2520do%2520perfil%2520em%2520branco%2F&tbnid=5EMYCfbP3D3XuM&vet=12ahUKEwjN-qaT6ZT3AhUlpZUCHTTUAiAQMygAegUIARDYAQ..i&docid=cunmtmcPtmRENM&w=480&h=480&q=foto%20perfil&ved=2ahUKEwjN-qaT6ZT3AhUlpZUCHTTUAiAQMygAegUIARDYAQ",
+    	"profileId": 1
+    }		
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_4bac721eced44f238761d88b6a1d6d7d
+authentication: {}
+metaSortKey: -1649724876630
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

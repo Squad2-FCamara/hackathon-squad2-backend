@@ -1,0 +1,21 @@
+_id: req_b780d656a7ef4845ab8e5d5b096c0029
+type: Request
+parentId: fld_ccdf5c799bbe449abcfa65a073d721e1
+modified: 1650038375272
+created: 1649703299544
+url: https://fcamara-squad2.herokuapp.com/user/id/1
+name: Find User By Id
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1649602448394
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

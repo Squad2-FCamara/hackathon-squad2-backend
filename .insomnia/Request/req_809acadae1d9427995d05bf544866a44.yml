@@ -1,0 +1,30 @@
+_id: req_809acadae1d9427995d05bf544866a44
+type: Request
+parentId: fld_ba75741363db49a98a6d08106cdbe6c3
+modified: 1650038160778
+created: 1649732711297
+url: https://fcamara-squad2.herokuapp.com/role
+name: Update Role
+description: ""
+method: PUT
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"name": "Teste",
+    	"roleId": 7
+    }	
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_4bac721eced44f238761d88b6a1d6d7d
+authentication: {}
+metaSortKey: -1649725283754.75
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

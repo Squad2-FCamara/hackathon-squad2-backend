@@ -1,0 +1,21 @@
+_id: req_16445d44dd7241d6931b0bbe6594aa90
+type: Request
+parentId: fld_ccdf5c799bbe449abcfa65a073d721e1
+modified: 1650038389771
+created: 1649630982071
+url: https://fcamara-squad2.herokuapp.com/user/name/daniel
+name: Get User By Name
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1649602448369
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,21 @@
+_id: req_5b3bb1e9fbad44709348c33eb85ae9ac
+type: Request
+parentId: fld_ba75741363db49a98a6d08106cdbe6c3
+modified: 1650038174244
+created: 1649734116387
+url: https://fcamara-squad2.herokuapp.com/role
+name: List All
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1649725283654.75
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

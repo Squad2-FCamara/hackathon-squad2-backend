@@ -1,0 +1,21 @@
+_id: req_35cb81ca425247eeb511c906936ede20
+type: Request
+parentId: fld_ccdf5c799bbe449abcfa65a073d721e1
+modified: 1650038305115
+created: 1649785476012
+url: https://fcamara-squad2.herokuapp.com/user/schedule/15
+name: Delete User Schedule
+description: ""
+method: DELETE
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1649714588280
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

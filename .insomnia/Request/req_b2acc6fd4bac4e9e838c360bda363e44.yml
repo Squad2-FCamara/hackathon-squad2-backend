@@ -1,0 +1,21 @@
+_id: req_b2acc6fd4bac4e9e838c360bda363e44
+type: Request
+parentId: fld_ba75741363db49a98a6d08106cdbe6c3
+modified: 1650038168545
+created: 1649733394229
+url: https://fcamara-squad2.herokuapp.com/role/9
+name: Delete Role
+description: ""
+method: DELETE
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1649725283704.75
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

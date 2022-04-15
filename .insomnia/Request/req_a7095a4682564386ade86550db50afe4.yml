@@ -1,0 +1,21 @@
+_id: req_a7095a4682564386ade86550db50afe4
+type: Request
+parentId: fld_9ef66e8e8d8541f0ae8357ba887b58cb
+modified: 1650038187181
+created: 1649729571410
+url: https://fcamara-squad2.herokuapp.com/skill/4
+name: Get Skill By Id
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1649726998684.25
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

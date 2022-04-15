@@ -1,0 +1,21 @@
+_id: req_c7d6b68108f8414b842fa8e10ae9b6ad
+type: Request
+parentId: fld_60178d3ea8be4673b76819d3a6997fbe
+modified: 1650038213728
+created: 1649855838909
+url: https://fcamara-squad2.herokuapp.com/
+name: Delete  Availability
+description: ""
+method: DELETE
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1649855838909
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,34 @@
+_id: req_9ed70a31ef294cb4a70241ed77a4b357
+type: Request
+parentId: fld_ccdf5c799bbe449abcfa65a073d721e1
+modified: 1650038340344
+created: 1649593423090
+url: https://fcamara-squad2.herokuapp.com/user/schedule
+name: Create User Schedule
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"day": "2022-04-14T13:00:00.511Z",
+    	"start_time": "2022-04-15T15:00:00.511Z",
+    	"end_time": "2022-04-15T15:30:00.511Z",
+    	"description": "Dúvida na introdução do artigo",
+    	"userId1": 5,
+    	"userId2": 6
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_f0339d760030496b879ef0bfd3dd9c61
+authentication: {}
+metaSortKey: -1649602448444
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,33 @@
+_id: req_1b78ca19622f4f7bb30ba3482514772a
+type: Request
+parentId: fld_ccdf5c799bbe449abcfa65a073d721e1
+modified: 1650038322503
+created: 1649781363868
+url: https://fcamara-squad2.herokuapp.com/user/schedule
+name: Update User Schedule
+description: ""
+method: PUT
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"scheduleId": 12,
+    	"day": "15-04-2022",
+    	"start_time": "17:00",
+    	"end_time": "17:30",
+    	"description": "Dúvidas no Nodemon e Angular"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_a60c650735d448a4af63630c7f64e211
+authentication: {}
+metaSortKey: -1649658380238
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

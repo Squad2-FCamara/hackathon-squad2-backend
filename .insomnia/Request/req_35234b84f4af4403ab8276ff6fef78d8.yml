@@ -1,0 +1,21 @@
+_id: req_35234b84f4af4403ab8276ff6fef78d8
+type: Request
+parentId: fld_9ef66e8e8d8541f0ae8357ba887b58cb
+modified: 1650038202686
+created: 1649730522305
+url: https://fcamara-squad2.herokuapp.com/skill/12
+name: Delete Skill
+description: ""
+method: DELETE
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1649725342977.5
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

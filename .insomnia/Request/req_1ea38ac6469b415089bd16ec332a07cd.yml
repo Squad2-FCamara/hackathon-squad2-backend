@@ -1,0 +1,21 @@
+_id: req_1ea38ac6469b415089bd16ec332a07cd
+type: Request
+parentId: fld_ccdf5c799bbe449abcfa65a073d721e1
+modified: 1650038297589
+created: 1649714864553
+url: https://fcamara-squad2.herokuapp.com/user/7
+name: Delete User
+description: ""
+method: DELETE
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1649714864553
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

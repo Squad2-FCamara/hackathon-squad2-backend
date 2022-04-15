@@ -1,0 +1,33 @@
+_id: req_9280113c26684d3693639243796a5280
+type: Request
+parentId: fld_60178d3ea8be4673b76819d3a6997fbe
+modified: 1650038283531
+created: 1649466416111
+url: https://fcamara-squad2.herokuapp.com/profile
+name: Create Profile
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"nickname": "daniel fontes",
+    	"seniority": "senior",
+    	"description": "Um sangue laranja com a lei de segurança de dados",
+    	"photo": "",
+    	"userId":6
+    }	
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_9e06bfc8ac674717aa6ab2782567867f
+authentication: {}
+metaSortKey: -1649449794472
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

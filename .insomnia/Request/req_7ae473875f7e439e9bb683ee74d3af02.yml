@@ -1,0 +1,30 @@
+_id: req_7ae473875f7e439e9bb683ee74d3af02
+type: Request
+parentId: fld_60178d3ea8be4673b76819d3a6997fbe
+modified: 1650038277018
+created: 1649594774452
+url: https://fcamara-squad2.herokuapp.com/profile/skill
+name: Join Profile Skill
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"skillId": 16,
+    	"profileId": 6
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_bb5235e1813143e4958d62d935518b68
+authentication: {}
+metaSortKey: -1649587335551
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

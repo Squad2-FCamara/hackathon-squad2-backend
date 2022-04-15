@@ -1,0 +1,30 @@
+_id: req_4c10a7616cc4423d9c813fcd5e007134
+type: Request
+parentId: fld_60178d3ea8be4673b76819d3a6997fbe
+modified: 1650038265125
+created: 1649735485978
+url: https://fcamara-squad2.herokuapp.com/profile/role
+name: Join Profile Role
+description: ""
+method: PATCH
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"profileId": 6,
+    	"roleId": 7
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_61bac076319244358aa651efbe019cf1
+authentication: {}
+metaSortKey: -1649656106090.5
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

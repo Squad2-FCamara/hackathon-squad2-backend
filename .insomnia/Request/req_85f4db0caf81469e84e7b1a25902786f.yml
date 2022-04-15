@@ -1,0 +1,21 @@
+_id: req_85f4db0caf81469e84e7b1a25902786f
+type: Request
+parentId: fld_ccdf5c799bbe449abcfa65a073d721e1
+modified: 1650038350767
+created: 1649821216494
+url: https://fcamara-squad2.herokuapp.com/user/availability
+name: List  All User By Availability
+description: ""
+method: GET
+body: {}
+parameters: []
+headers: []
+authentication: {}
+metaSortKey: -1649602448406.5
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

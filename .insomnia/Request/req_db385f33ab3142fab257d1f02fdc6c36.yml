@@ -1,0 +1,31 @@
+_id: req_db385f33ab3142fab257d1f02fdc6c36
+type: Request
+parentId: fld_ccdf5c799bbe449abcfa65a073d721e1
+modified: 1650038334403
+created: 1649449794422
+url: https://fcamara-squad2.herokuapp.com/user
+name: Create User
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"name": "daniel fontes",
+    	"email": "daniel@fcamara.com",
+    	"password": "987"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_a0914815f5c94423822d41a869859ce7
+authentication: {}
+metaSortKey: -1649602448469
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

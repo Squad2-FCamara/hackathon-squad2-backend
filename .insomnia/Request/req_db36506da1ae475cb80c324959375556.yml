@@ -1,0 +1,35 @@
+_id: req_db36506da1ae475cb80c324959375556
+type: Request
+parentId: fld_60178d3ea8be4673b76819d3a6997fbe
+modified: 1650038271049
+created: 1649819550994
+url: https://fcamara-squad2.herokuapp.com/profile/address
+name: Create Address
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"profileId": 6,
+    	"street": "Rua fff",
+    	"number": 987,
+    	"cep": "19987-987",
+    	"country": "Brasil",
+    	"state": "Paraná",
+    	"city": "Curitiba"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_9b6d300b1c9f4418ad637a7c8df94c10
+authentication: {}
+metaSortKey: -1649621720820.75
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

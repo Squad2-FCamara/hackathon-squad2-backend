@@ -1,0 +1,29 @@
+_id: req_83d211cfafde4bf890db1e3015bcd335
+type: Request
+parentId: fld_9ef66e8e8d8541f0ae8357ba887b58cb
+modified: 1650038191522
+created: 1649533398637
+url: https://fcamara-squad2.herokuapp.com/skill
+name: Create Skill
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"name": "miro"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_ac1693fd22764b4594fff5b839cdc5b6
+authentication: {}
+metaSortKey: -1649725343127.5
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

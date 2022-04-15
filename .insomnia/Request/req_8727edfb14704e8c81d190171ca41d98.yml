@@ -1,0 +1,30 @@
+_id: req_8727edfb14704e8c81d190171ca41d98
+type: Request
+parentId: fld_ccdf5c799bbe449abcfa65a073d721e1
+modified: 1650038328014
+created: 1649945298278
+url: https://fcamara-squad2.herokuapp.com/user/contact
+name: Add Contact
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"userId": 6,
+    	"profileId": 5
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_c9e1ce3a8eaa42b09a713b8c84c23e94
+authentication: {}
+metaSortKey: -1649630414353.5
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

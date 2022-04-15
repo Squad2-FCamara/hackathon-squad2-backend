@@ -1,0 +1,35 @@
+_id: req_51c3ea6a187e4b10b9375b31fe619d67
+type: Request
+parentId: fld_60178d3ea8be4673b76819d3a6997fbe
+modified: 1650038252981
+created: 1649791980081
+url: https://fcamara-squad2.herokuapp.com/profile/address
+name: Update Address
+description: ""
+method: PUT
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"profileId": 6,
+    	"street": "Rua fff",
+    	"number": 658,
+    	"cep": "19145-785",
+    	"country": "Brasil",
+    	"state": "São Paulo",
+    	"city": "Osasco"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_9b6d300b1c9f4418ad637a7c8df94c10
+authentication: {}
+metaSortKey: -1649725080217.375
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

@@ -1,0 +1,29 @@
+_id: req_78085a2d54524705839ed95d40b6d22a
+type: Request
+parentId: fld_ba75741363db49a98a6d08106cdbe6c3
+modified: 1650038155952
+created: 1649535739847
+url: https://fcamara-squad2.herokuapp.com/role
+name: Create Role
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"name": "ux/ui"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_16b8a13237fa4d3aa9c6a8b28e9def93
+authentication: {}
+metaSortKey: -1649725283804.75
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global

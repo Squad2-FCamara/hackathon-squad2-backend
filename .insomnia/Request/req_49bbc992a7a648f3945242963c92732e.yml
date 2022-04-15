@@ -1,0 +1,32 @@
+_id: req_49bbc992a7a648f3945242963c92732e
+type: Request
+parentId: fld_60178d3ea8be4673b76819d3a6997fbe
+modified: 1650038289672
+created: 1649821305309
+url: https://fcamara-squad2.herokuapp.com/availability
+name: Create Availability
+description: ""
+method: POST
+body:
+  mimeType: application/json
+  text: |-
+    {
+    	"profileId": 6,
+    	"day": "2022-04-15T07:00:00.969Z",
+    	"start_time": "2022-04-15T21:00:00.969Z",
+    	"end_time": "2022-04-15T21:30:00.969Z"
+    }
+parameters: []
+headers:
+  - name: Content-Type
+    value: application/json
+    id: pair_8ec3ca59edf2415da0612f5521a1bd18
+authentication: {}
+metaSortKey: -1649449794422
+isPrivate: false
+settingStoreCookies: true
+settingSendCookies: true
+settingDisableRenderRequestBody: false
+settingEncodeUrl: true
+settingRebuildPath: true
+settingFollowRedirects: global
