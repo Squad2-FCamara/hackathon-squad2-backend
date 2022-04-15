@@ -13,6 +13,7 @@ app.use(express.json());
 
 app.use((req, res, next) => {
   res.header("Acess-Control-Allow-Origin","*");
+  res.header("X-Content-Type-Options", "nosniff");
   app.use(cors());
   next();
 })
