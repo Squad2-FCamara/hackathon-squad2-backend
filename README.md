@@ -41,4 +41,5 @@ npx prisma studio
 ``` 
 
 O deploy do back-end foi feito no Heroku e pode ser acessado pelo link: https://fcamara-squad2.herokuapp.com
+
 No repositório do projeto, encontra-se também as requisições usadas no software Insomnia.
